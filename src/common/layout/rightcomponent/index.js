@@ -31,6 +31,7 @@ const Authority = asyncComponent(() => import('../../../pages/AccessManage/Autho
 const Menu = asyncComponent(() => import('../../../pages/AccessManage/Menu'));
 
 const Test = asyncComponent(() => import('../../../pages/test'));
+const Detail = asyncComponent(() => import('../../../pages/test/detail'));
 class RightComponent extends React.Component{
     render () {
 		// 动态获取重定向路由
@@ -63,7 +64,8 @@ class RightComponent extends React.Component{
                         <Route path="/accessmanage/account" component={Account}/>
 						<Route path="/accessmanage/authority" component={Authority}/>
 						<Route path="/accessmanage/menu" component={Menu}/>
-						<Route path="/test" component={Test}/>
+						<Route path="/test" exact component={Test}/>
+						<Route path="/test/detail/:userId" exact component={Detail}/>
                         <Route path="/" render={(props) => <Redirect to="/test"/>}/>
 
                     </Switch>

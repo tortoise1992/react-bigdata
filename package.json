@@ -7,7 +7,7 @@
     "antd": "^3.14.1",
     "axios": "^0.18.0",
     "bizcharts": "^3.4.0",
-    "react": "^16.8.3",
+    "react": "^16.8.4",
     "react-bmap": "^1.0.89",
     "react-cropper": "^1.0.1",
     "react-dom": "^16.8.3",

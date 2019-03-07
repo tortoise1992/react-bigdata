@@ -4,7 +4,7 @@ export default class Test extends Component {
   render() {
     return (
       <div>
-                我是测试页面
+        <iframe src={'./test.html'} style={{width:1200,height:600,border:'1px solid #09f'}} title='test'></iframe>
       </div>
     )
   }
