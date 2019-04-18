@@ -1,5 +1,5 @@
 import React,{useEffect,useCallback,useState,Fragment} from 'react'
-import {Button,Table} from 'antd'
+import {Button,Table,message} from 'antd'
 export default function B(props){
     const [list,setList]=useState([])
     const columns=[
@@ -42,6 +42,9 @@ export default function B(props){
     },[])
     return(
         <Fragment>
+            <div>
+                带参数请求：<Button type='primary'>搜索</Button>
+            </div>
             <Table
                 columns={columns}
                 dataSource={list}

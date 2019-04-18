@@ -33,6 +33,7 @@ const Menu = asyncComponent(() => import('../../../pages/AccessManage/Menu'));
 const Test = asyncComponent(() => import('../../../pages/test'));
 
 const Hooks = asyncComponent(() => import('../../../pages/hooks'));
+const StaticComp = asyncComponent(() => import('../../../pages/static'));
 class RightComponent extends React.Component{
     render () {
 		// 动态获取重定向路由
@@ -67,6 +68,7 @@ class RightComponent extends React.Component{
 						<Route path="/accessmanage/menu" component={Menu}/>
 						<Route path="/test" component={Test}/>
 						<Route path="/hooks" component={Hooks}/>
+						<Route path="/static" component={StaticComp}/>
                         <Route path="/" render={(props) => <Redirect to="/test"/>}/>
 
                     </Switch>

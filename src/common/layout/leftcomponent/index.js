@@ -97,7 +97,10 @@ class LeftComponent extends React.Component{
 								<i className="iconfont icon-shujumofang" style={{ marginRight: 8, fontSize: 22 }}></i>
 								<span>React-hooks</span>
 							</Menu.Item>
-							  
+							<Menu.Item key="/static">
+								<i className="iconfont icon-shujumofang" style={{ marginRight: 8, fontSize: 22 }}></i>
+								<span>静态方法</span>
+							</Menu.Item>
 							<SubMenu 
 								key="/accessmanage" 
 								title={
