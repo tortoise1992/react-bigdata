@@ -52,26 +52,45 @@ export default {
     phone: '0752-268888888',
   },
   // GET POST 可省略
-  'GET /api/users': [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-  ],
+  'GET /api/users': {
+    success: true,
+    msg:'请求成功',
+    obj: {
+      current:1,
+      pageSize:10,
+      total:4,
+      data: [
+        {
+          key: '1',
+          username: 'test1',
+          name: 'John Brown',
+          sex: 1,
+          role: '普通用户',
+        },
+        {
+          key: '2',
+          username: 'test1',
+          name: 'John Brown',
+          sex: 1,
+          role: '普通用户',
+        },
+        {
+          key: '3',
+          username: 'test1',
+          name: 'John Brown',
+          sex: 0,
+          role: '普通用户',
+        },
+        {
+          key: '4',
+          username: 'test1',
+          name: 'John Brown',
+          sex: 1,
+          role: '普通用户',
+        }
+      ]
+    }
+  },
   'POST /api/login/account': (req, res) => {
     const { password, userName, type } = req.body;
     if (password === 'ant.design' && userName === 'admin') {
