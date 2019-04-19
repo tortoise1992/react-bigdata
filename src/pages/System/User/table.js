@@ -15,6 +15,7 @@ export default class MyTable extends Component {
         }
     }
     componentDidMount() {
+        console.log(this.props)
         request('/api/users').then(res=>{
             if(res.success){
                 this.setState({
