@@ -9,7 +9,9 @@ import { LocaleProvider } from 'antd';
 import 'moment/locale/zh-cn';
 
 import RouterPage from './router'
+import {DragDropContext} from 'react-dnd'
 
+import HTML5Backend from 'react-dnd-html5-backend'
 class App extends React.Component {
     render(){
         return (<LocaleProvider locale={zhCN}>
@@ -35,4 +37,4 @@ if (module.hot) {
     })
 }
 
-render(App);
+render(DragDropContext(HTML5Backend)(App));
