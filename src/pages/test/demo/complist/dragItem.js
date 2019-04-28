@@ -5,7 +5,7 @@ const rowSource = {
         // console.log(props)
         return {
             // 开始拖拽的时候返回的对象可以在end的时候接收
-            id:props.item.id
+            type:props.item.type
         };
     },
     endDrag(props, monitor) {
@@ -13,9 +13,9 @@ const rowSource = {
         // console.log(item.item)
         const dropResult = monitor.getDropResult()
         // 由容器的drop方法里面传入
-        if (dropResult) {
-          alert(`You dropped ${item.id} into ${dropResult.name}!`)
-        }
+        // if (dropResult) {
+        //   alert(`You dropped ${item.id} into ${dropResult.name}!`)
+        // }
     },
   };
 
@@ -26,7 +26,7 @@ class DragItem extends Component{
             item
         } = this.props;
         return connectDragSource(<div style={{height:30,lineHeight:'30px',marginBottom:10,backgroundColor:'#09f',color:'#fff',cursor:'move'}} key={this.props.index}>
-            {item.title}
+            <span style={{margin:'0 10px'}}>{item.icon}</span>{item.title}
         </div>)
     }
 }
