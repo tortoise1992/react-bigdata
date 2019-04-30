@@ -91,11 +91,11 @@ class LeftComponent extends React.Component{
 						
 							<Menu.Item key="/test">
 								<i className="iconfont icon-shujumofang" style={{ marginRight: 8, fontSize: 22 }}></i>
-								<span>测试</span>
+								<span>一表通</span>
 							</Menu.Item>					  
 							
 							  
-							<SubMenu 
+							{/* <SubMenu 
 								key="/accessmanage" 
 								title={
 									<span>
@@ -107,7 +107,7 @@ class LeftComponent extends React.Component{
 								<Menu.Item key="/accessmanage/account">账号管理</Menu.Item>
 								<Menu.Item key="/accessmanage/authority">角色管理</Menu.Item>
 								<Menu.Item key="/accessmanage/menu">菜单管理</Menu.Item>
-							</SubMenu> 
+							</SubMenu>  */}
 						
 						
 					</Menu>

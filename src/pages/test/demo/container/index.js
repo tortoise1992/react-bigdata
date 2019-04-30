@@ -5,6 +5,8 @@ import BasicTextArea from '../component/textarea'
 import BasicDate from '../component/date'
 import BasicCheckBox from '../component/checkbox'
 import BasicRadio from '../component/radio'
+import BasicTable from '../component/table'
+import TableDrawer from './drawer'
 let template={
   sort:'',
   unid:'',
@@ -36,7 +38,8 @@ const rowTarget = {
   };
 class Container extends Component {
   state={
-    custom:[]    
+    custom:[],
+    drawerVisible:false 
   }
   componentWillReceiveProps(nextProps,nextState){
     if(JSON.stringify(nextProps !==this.props)){
@@ -46,7 +49,19 @@ class Container extends Component {
     }
   }
   handleEdit=(item)=>{
-    this.props.getEditData(item)    
+    if(item.type === 'table'){
+      this.setState({
+        drawerVisible:true
+      })
+    }else{
+      this.props.getEditData(item)    
+    }
+    
+  }
+  onClose=()=>{
+    this.setState({
+      drawerVisible:false
+    })
   }
   handleDelete=(id)=>{
     this.props.deleteItem(id)
@@ -54,6 +69,7 @@ class Container extends Component {
   render() {
     const {connectDropTarget}=this.props
     return connectDropTarget(<div className='t-container'>
+        <TableDrawer onClose={this.onClose} drawerVisible={this.state.drawerVisible}></TableDrawer>
         {
           this.state.custom.map((item,index)=>{
             if(item.type === 'input'){
@@ -66,6 +82,10 @@ class Container extends Component {
               return <BasicCheckBox edit={this.handleEdit} delete={this.handleDelete} item={item} key={index}></BasicCheckBox>
             }else if(item.type === 'radio'){
               return <BasicRadio edit={this.handleEdit} delete={this.handleDelete} item={item} key={index}></BasicRadio>
+            }else if(item.type === 'table'){
+              return <BasicTable edit={this.handleEdit} delete={this.handleDelete} item={item} key={index}></BasicTable>
+            }else{
+              return null
             }
             
           })

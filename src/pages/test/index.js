@@ -7,13 +7,10 @@ class DragSortingTable extends React.Component {
   
   render() {
     return (
-      <div style={{padding:20}}>
-
-        
-      <Card title='容器拖拽'> 
-          <DemoPage></DemoPage>
-      </Card>
-      
+      <div style={{padding:20}}>        
+        <Card title='容器拖拽'> 
+            <DemoPage></DemoPage>
+        </Card>     
       </div>
       
       

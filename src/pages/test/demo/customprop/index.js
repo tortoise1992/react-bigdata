@@ -5,9 +5,9 @@ import { Form,Input,Card,Button } from 'antd'
 const propDict={  
   label:'标签',
   width:'宽度',
-  name:'占位符',
-  collection:'数据集',
-  dataSource:'字段'
+  name:'占位符（对应模板中具体填充位置标识）',
+  collection:'数据集（选择数据库中的某张表）',
+  dataSource:'字段（选择数据表中的某个字段）'
 }
 const FormItem=Form.Item
 class CustomProp extends Component {
@@ -40,7 +40,7 @@ class CustomProp extends Component {
       <Card title='组件属性配置' className='t-prop' extra={
         <React.Fragment>
           <Button type='primary' onClick={this.handleSave} style={{marginRight:5}}>保存</Button>
-          <Button type='primary'>取消</Button>
+          {/* <Button type='primary'>取消</Button> */}
         </React.Fragment>
       
       }>        
