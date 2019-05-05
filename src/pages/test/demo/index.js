@@ -9,29 +9,57 @@ class Demo extends Component {
         custom:[],
         editData:null
     }
-    // componentDidMount() {
-    //     this.setState({
-    //         custom:[{
-    //             sort:1,
-    //             unid:'03170471',
-    //             type:'input',
-    //             label:'姓名',
-    //             width:'50%',
-    //             name:'name',
-    //             collection:'user',
-    //             dataSource:'user_name'
-    //         },{
-    //             sort:2,
-    //             unid:'12646163',
-    //             type:'input',
-    //             label:'年龄',
-    //             width:'100%',
-    //             name:'age',
-    //             collection:'user',
-    //             dataSource:'user_age'
-    //         }]
-    //     })
-    // }
+    componentDidMount() {
+        this.setState({
+            custom:[{
+                sort:1,
+                unid:'03170471',
+                type:'input',
+                label:'姓名',
+                width:'80%',
+                name:'name',
+                collection:'user',
+                dataSource:'user_name'
+            },{
+                sort:2,
+                unid:'12646163',
+                type:'input',
+                label:'年龄',
+                width:'100%',
+                name:'age',
+                collection:'user',
+                dataSource:'user_age'
+            },
+            {
+                sort:3,
+                unid:'45da45d4ad',
+                type:'radio',
+                label:'性别',
+                width:'100%',
+                name:'sex',
+                // 如果有自己手动输入的值，存在value字段
+                value:1,
+                collection:'user',
+                dataSource:'user_sex',
+                // 针对单选框和复选框选项配置
+                configSource:['男','女']                
+            },            
+            {
+                sort:4,
+                unid:'1143dafa',
+                type:'checkbox',
+                label:'喜欢的水果',
+                width:'100%',
+                name:'flu',
+                // 如果有自己手动输入的值，存在value字段
+                value:[1,2,3],
+                collection:'user',
+                dataSource:'user_flu',
+                // 针对单选框和复选框选项配置
+                configSource:['香蕉','苹果','菠萝','梨子']                
+            }]
+        })
+    }
     getEditData=(item)=>{
         this.setState({
             editData:item

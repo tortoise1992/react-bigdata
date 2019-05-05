@@ -8,7 +8,7 @@ class BasicInput extends Component {
     render() {
         
         return (
-            <DatePicker  onChange={this.onChange.bind(this)}></DatePicker>
+            <DatePicker disabled  onChange={this.onChange.bind(this)}></DatePicker>
         )
     }
 }

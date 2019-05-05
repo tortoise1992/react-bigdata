@@ -15,7 +15,7 @@ let template={
   width:'100%',
   name:'',
   collection:'',
-  dataSource:''
+  dataSource:'',
 }
 const rowTarget = {
     // drop返回的对象可以在drap里面拿到
@@ -29,6 +29,10 @@ const rowTarget = {
         type:item.type,
         unid:`com${new Date().getTime()}`
       }
+      if(item.type === 'radio' || item.type === 'checkbox'){
+        newItem.configSource=[]
+      }
+      console.log(newItem)
       // 传递到父组件
       component.props.dropComp(newItem)
       return {

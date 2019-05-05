@@ -5,7 +5,7 @@ const { TextArea } = Input;
 class BasicInput extends Component {
   render() {
     return (
-        <TextArea></TextArea>
+        <TextArea placeholder='测试内容，仅供参考' disabled></TextArea>
     )
   }
 }

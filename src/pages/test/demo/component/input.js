@@ -4,7 +4,7 @@ import Hoc from '../hoc'
 class BasicInput extends Component {
   render() {
     return (
-        <Input></Input>
+        <Input placeholder='测试内容，仅供参考' disabled></Input>
     )
   }
 }

@@ -25,7 +25,7 @@ export default (WrappedComponent) => {
               {this.props.item.label}：
             </div>
             <div className='myCol-form-item'>
-              <WrappedComponent {...this.props.item}></WrappedComponent>
+              <WrappedComponent item={this.props.item}></WrappedComponent>
             </div>
           </div>
         </div>
