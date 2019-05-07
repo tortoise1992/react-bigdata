@@ -78,7 +78,10 @@ class Container extends Component {
   render() {
     const {connectDropTarget}=this.props
     return connectDropTarget(<div className='t-container'>
-        <TableDrawer onClose={this.onClose} drawerVisible={this.state.drawerVisible}></TableDrawer>
+    {
+      this.state.drawerVisible?<TableDrawer editTable={this.state.editTable} onClose={this.onClose} drawerVisible={this.state.drawerVisible}></TableDrawer>:null
+    }
+        
         {
           this.state.custom.map((item,index)=>{
             if(item.type === 'input'){

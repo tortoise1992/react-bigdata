@@ -2,6 +2,24 @@ import React, { Component } from 'react'
 import { Drawer, Button,Tree,Row,Col } from 'antd'
 const { TreeNode } = Tree;
 export default class MyDrawer extends Component {
+    state={
+        treeData:[]
+    }
+    componentDidMount() {
+        this.setState({
+            treeData:this.props.editTable.columns
+        })
+    }
+    renderTreeNodes = data => data.map((item,index) => {
+        if (item.children) {
+          return (
+            <TreeNode title={item.title} key={item.title+index} dataRef={item}>
+              {this.renderTreeNodes(item.children)}
+            </TreeNode>
+          );
+        }
+        return <TreeNode key={item.title+index} {...item} dataRef={item} />;
+    })
     render() {
         return (
             <Drawer
@@ -15,20 +33,11 @@ export default class MyDrawer extends Component {
                 <Row>
                     <Col span={16}>
                     树形结构
-                    <Tree
-                        defaultExpandedKeys={['0-0-0', '0-0-1']}
-                        defaultSelectedKeys={['0-0-0', '0-0-1']}
-                        defaultCheckedKeys={['0-0-0', '0-0-1']}
+                    <Tree                        
                     >
-                        <TreeNode title="parent 1" key="0-0">
-                        <TreeNode title="parent 1-0" key="0-0-0">
-                            <TreeNode title="leaf" key="0-0-0-0" />
-                            <TreeNode title="leaf" key="0-0-0-1" />
-                        </TreeNode>
-                        <TreeNode title="parent 1-1" key="0-0-1">
-                            <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
-                        </TreeNode>
-                        </TreeNode>
+                        {
+                            this.renderTreeNodes(this.state.treeData)
+                        }
                     </Tree>
                     </Col>
                     <Col span={8}>

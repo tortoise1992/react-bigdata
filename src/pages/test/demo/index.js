@@ -73,7 +73,7 @@ class Demo extends Component {
                     {
                         title:'就业情况',
                         database:'user',
-                        dataIndex:'userNo',
+                        dataIndex:'employ',
                         children:[
                             {
                                 title:'工作',
