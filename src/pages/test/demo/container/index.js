@@ -43,7 +43,8 @@ const rowTarget = {
 class Container extends Component {
   state={
     custom:[],
-    drawerVisible:false 
+    drawerVisible:false,
+    editTable:[]
   }
   componentWillReceiveProps(nextProps,nextState){
     if(JSON.stringify(nextProps !==this.props)){
@@ -55,12 +56,16 @@ class Container extends Component {
   handleEdit=(item)=>{
     if(item.type === 'table'){
       this.setState({
-        drawerVisible:true
+        drawerVisible:true,
+        editTable:item
       })
     }else{
-      this.props.getEditData(item)    
-    }
-    
+      this.setState({
+        editTable:[]
+      },()=>{
+        this.props.getEditData(item) 
+      })         
+    }    
   }
   onClose=()=>{
     this.setState({

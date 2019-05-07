@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './index.less'
 import { Form,Input,Card,Button,Radio,Select  } from 'antd'
 const RadioGroup = Radio.Group;
-const FormItem=Form.Item,Option = Select.Option;
+const FormItem=Form.Item;
 // 预定义key对应的展示名称
 const propDict={  
   label:'标签',

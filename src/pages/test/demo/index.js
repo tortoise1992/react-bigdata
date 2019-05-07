@@ -57,6 +57,40 @@ class Demo extends Component {
                 dataSource:'user_flu',
                 // 针对单选框和复选框选项配置
                 configSource:['香蕉','苹果','菠萝','梨子']                
+            },{
+                sort:5,
+                unid:'dafafafg',
+                type:'table',
+                label:'测试表格',
+                width:'100%',
+                columns:[
+                    {
+                        title:'学号',
+                        database:'user',
+                        dataIndex:'userNo',
+                        width:'20%'
+                    },
+                    {
+                        title:'就业情况',
+                        database:'user',
+                        dataIndex:'userNo',
+                        children:[
+                            {
+                                title:'工作',
+                                database:'user',
+                                dataIndex:'work',
+                                width:'20%'
+                            },
+                            {
+                                title:'升学',
+                                database:'user',
+                                dataIndex:'school',
+                                width:'20%'
+                            }
+                        ]
+                    }
+                ]               
+                
             }]
         })
     }
