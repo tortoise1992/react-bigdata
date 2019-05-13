@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Drawer, Button,Tree,Row,Col } from 'antd'
+import AddOrEdit from './model'
 const { TreeNode } = Tree;
 export default class MyDrawer extends Component {
     state={
-        treeData:[]
+        treeData:[],
+        modelVisible:false
     }
     componentDidMount() {
         this.setState({
@@ -20,6 +22,24 @@ export default class MyDrawer extends Component {
         }
         return <TreeNode key={item.title+index} {...item} dataRef={item} />;
     })
+    handleAddRow=()=>{
+        this.setState({
+            modelVisible:true
+        })
+    }
+    closeModel=()=>{
+        this.setState({
+            modelVisible:false
+        })
+    }
+    handleEditRow=()=>{
+        this.setState({
+            modelVisible:true
+        })
+    }
+    handleDeleteRow=()=>{
+
+    }
     render() {
         return (
             <Drawer
@@ -29,10 +49,23 @@ export default class MyDrawer extends Component {
                 closable={false}
                 onClose={this.props.onClose}
                 visible={this.props.drawerVisible}
-            >
+            >   
+                {
+                    this.state.modelVisible?<AddOrEdit 
+                    visible={this.state.modelVisible}
+                    closeModel={this.closeModel}
+                    ></AddOrEdit>
+                    :null
+                }
                 <Row>
-                    <Col span={16}>
+                    <Col span={24}>
                     树形结构
+                    <div style={{margin:'10px 0'}}>
+                        <Button style={{marginRight:20}} onClick={this.handleAddRow} type='primary'>新增列</Button>
+                        <Button style={{marginRight:20}} onClick={this.handleEditRow} type='primary'>编辑列</Button>
+                        <Button type='primary' onClick={this.handleDeleteRow}>删除列</Button>
+                    </div>
+                    
                     <Tree                        
                     >
                         {
@@ -40,9 +73,9 @@ export default class MyDrawer extends Component {
                         }
                     </Tree>
                     </Col>
-                    <Col span={8}>
+                    {/* <Col span={8}>
                     属性区域
-                    </Col>
+                    </Col> */}
                 </Row>
                 <div
                     style={{
