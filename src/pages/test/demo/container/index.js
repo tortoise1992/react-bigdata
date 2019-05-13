@@ -32,7 +32,9 @@ const rowTarget = {
       if(item.type === 'radio' || item.type === 'checkbox'){
         newItem.configSource=[]
       }
-      console.log(newItem)
+      if(item.type === 'table'){
+        newItem.columns=[]
+      }
       // 传递到父组件
       component.props.dropComp(newItem)
       return {
